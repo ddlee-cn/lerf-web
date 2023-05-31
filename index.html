@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="description"
         content="Learning Steerable Function for Efficient Image Resampling">
-  <meta name="keywords" content="ECCV, MuLUT, Image Super-Resolution, Look-Up Table">
+  <meta name="keywords" content="CVPR, LeRF, Image Resampling, Image Super-Resolution, Look-Up Table">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Learning Steerable Function for Efficient Image Resampling</title>
 
@@ -75,6 +75,9 @@
           <a class="navbar-item" href="https://mulut.pages.dev">
             MuLUT
           </a>
+          <a class="navbar-item" href="https://lerf.pages.dev">
+            LeRF
+          </a>
 
         </div>
       </div>
@@ -83,7 +86,224 @@
   </div>
 </nav>
 
-Coming Soon.
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Learning Steerable Function for Efficient Image Resampling</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://ddlee-cn.github.io/">Jiacheng Li</a><sup>1</sup>*,</span>
+            <span class="author-block">
+              <a href="#">Chang Chen</a><sup>2</sup>*,</span>
+              <span class="author-block">
+                <a href="#">Wei Huang</a><sup>1</sup>,</span>
+                <span class="author-block">
+                  <a href="#">Zhiqiang Qiang</a><sup>2</sup>,</span>
+                  <p></p>
+                  <span class="author-block">
+                    <a href="#">Fenglong Song</a><sup>2</sup>,</span>
+                    <span class="author-block">
+                <a href="#">Youliang Yan</a><sup>1</sup>,</span>  and 
+            <span class="author-block">
+              <a href="http://staff.ustc.edu.cn/~zwxiong/">Zhiwei Xiong</a><sup>1#</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <p class="author-block"><sup>1</sup>University of Science and Technology of China,</p>
+            <p class="author-block"><sup>2</sup>Huawei Noah’s Ark Lab</p>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <p class="author-block">*Equal contribution <sup>#</sup>Correspondence author</p>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <p class="author-block">In CVPR 2023</p>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- Video Link. -->
+              <!-- <span class="link-block">
+                <a href="https://youtu.be/6Sgnq2AD5yw"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Intro Video</span>
+                </a>
+              </span> -->
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://openaccess.thecvf.com/content/CVPR2023/html/Li_Learning_Steerable_Function_for_Efficient_Image_Resampling_CVPR_2023_paper.html"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- <span class="link-block">
+                <a href="https://openaccess.thecvf.com/content/CVPR2023/supplemental/Li_Learning_Steerable_Function_CVPR_2023_supplemental.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Supp.</span>
+                </a>
+              </span> -->
+              <span class="link-block">
+                <a href="static/LeRF-Poster_CVPR23.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Poster</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://gitee.com/mindspore/models/tree/master/research/cv/lerf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>MindSpore</span>
+                  </a>
+              </span>
+            <span class="link-block">
+              <a href="static/Model_050000.ckpt"
+                 class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                    <i class="fab fa-github"></i>
+                </span>
+                <span>Model</span>
+                </a>
+            </span>
+          <!-- Code Link. -->
+          <span class="link-block">
+            <a href="static/LeRF_LUTs.zip"
+               class="external-link button is-normal is-rounded is-dark">
+              <span class="icon">
+                  <i class="fab fa-github"></i>
+              </span>
+              <span>LUTs</span>
+              </a>
+          </span>
+            </div>
+          </div>
+            <!-- Code Link. -->
+        </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <!-- <h2 class="title is-3">TL; DR</h2> -->
+
+      <h2 class="title is-3">Abstract</h2>
+        <p>
+          Image resampling is a basic technique that is widely employed in daily applications. Existing deep neural networks (DNNs) have made impressive progress in resampling performance. Yet these methods are still not the perfect substitute for interpolation, due to the issues of efficiency and continuous resampling. In this work, we propose a novel method of Learning Resampling Function (termed LeRF), which takes advantage of both the structural priors learned by DNNs and the locally continuous assumption of interpolation methods. Specifically, LeRF assigns spatially-varying steerable resampling functions to input image pixels and learns to predict the hyper-parameters that determine the orientations of these resampling functions with a neural network. To achieve highly efficient inference, we adopt look-up tables (LUTs) to accelerate the inference of the learned neural network. Furthermore, we design a directional ensemble strategy and edge-sensitive indexing patterns to better capture local structures. Extensive experiments show that our method runs as fast as interpolation, generalizes well to arbitrary transformations, and outperforms interpolation significantly, e.g., up to 3dB PSNR gain over bicubic for x2 upsampling on Manga109.
+        </p>
+      <h2 class="subtitle">
+
+        <!-- <p>Image resampling is a technique that manipulates the image according to a geometric transformation, such as downsampling and sheering.</p>
+        <p></p>
+        <p></p>
+        <p>Typically, resampling is achieved through interpolation.</p>
+        <p></p>
+        <p></p>
+        <p>In this work, we propose a novel method of Learning Resampling Function to make the interpolation process adaptive to local structures.</p>
+        <p></p>
+        <p></p>
+        <p>Instead of adopting fixed function, our method assigns spatially-varying steerable resampling functions to input image pixels and learns to predict the hyper-parameters that determine the orientations of these resampling functions with a neural network.</p>
+        <p></p>
+        <p></p>
+        <p>Accelerated by Look Up Table, our method runs as fast as interpolation, generalizes well to arbitrary transformations, and outperforms interpolation significantly.</p> -->
+      </h2>
+
+      <img src="static/images/LeRF-At-A-Glance.png" alt="this slowpoke moves"  width="1920" />
+
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+<!-- Paper video. -->
+<div class="columns is-centered has-text-centered">
+  <div class="column is-four-fifths">
+      <h2 class="title is-3">Continuous Resampling Resulsts</h2>
+
+      <!-- <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="static/images/LeRF_upsample.mp4"
+                type="video/mp4">
+      </video>
+      <p>Arbitrary-Scale Super-Resolution</p> -->
+      <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="static/images/LeRF_homographic.mp4"
+                type="video/mp4">
+      </video>
+      <p>Homographic Transformation</p>
+    </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+<!-- Paper video. -->
+<div class="columns is-centered has-text-centered">
+  <div class="column is-four-fifths">
+    <h2 class="title is-3">Learn More</h2>
+    <div class="publication-video">
+      <iframe src="https://www.youtube.com/embed/6Sgnq2AD5yw?rel=0&amp;showinfo=0"
+              frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+<!--/ Paper video. -->
+</div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@InProceedings{Li_2022_ECCV,
+      author    = {Li, Jiacheng and Chen, Chang and Cheng, Zhen and Xiong, Zhiwei},
+      title     = {MuLUT: Cooperating Multiple Look-Up Tables for Efficient Image Super-Resolution},
+      booktitle = {Proceedings of the European Conference on Computer Vision (ECCV)},
+      year      = {2022},
+  }
+
+@arxiv{Li_2023_DNN_LUT,
+  author    = {Li, Jiacheng and Chen, Chang and Cheng, Zhen and Xiong, Zhiwei},
+  title     = {Toward {DNN} of {LUTs}: Learning Efficient Image Restoration with Multiple Look-Up Tables},
+  booktitle = {arxiv},
+  year      = {2023},
+}
+
+  @InProceedings{Li_2023_CVPR,
+    author    = {Li, Jiacheng and Chen, Chang and Huang, Wei and Lang, Zhiqiang and Song, Fenglong and Yan, Youliang and Xiong, Zhiwei},
+    title     = {Learning Steerable Function for Efficient Image Resampling},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2023},
+    pages     = {5866-5875}
+}</code></pre>
+  </div>
+</section>
+
 
 <footer class="footer">
   <div class="container">
